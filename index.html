@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>London</title>
+<link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+<div class = "wrapper">
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+<header>
+   <h1>City Gallery</h1>
+</header>
+<nav>
+  <ul>
+   <li><a href="file:///home/dacha/%D0%A1%D1%82%D1%96%D0%BB%D1%8C%D0%BD%D0%B8%D1%86%D1%8F/%D0%9D%D0%B0%D0%B2%D1%87%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%A3%D0%BD%D1%96%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82/Web/html/index.html" target="_blank">London</a></li>
+   <li><a href="file:///home/dacha/%D0%A1%D1%82%D1%96%D0%BB%D1%8C%D0%BD%D0%B8%D1%86%D1%8F/%D0%9D%D0%B0%D0%B2%D1%87%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%A3%D0%BD%D1%96%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82/Web/html/model.html" target="_blank">Paris</a></li>
+   <li><a href="file:///home/dacha/%D0%A1%D1%82%D1%96%D0%BB%D1%8C%D0%BD%D0%B8%D1%86%D1%8F/%D0%9D%D0%B0%D0%B2%D1%87%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%A3%D0%BD%D1%96%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82/Web/html/contact.html" target="_blank">Tokyo</a></li>
+  <ul>
+</nav>
+
+<div class="slider">
+	<ul>
+		<li><img src="London.jpg" height = "300px" width = "400px" align = "center"></li>
+		<li><img src="Paris.jpg" height = "300px" width = "400px" align = "center"></li>
+		<li><img src="Tokyo.jpg" height = "300px" width = "400px" align = "center"></li>
+		
+	</ul>
+</div>
+
+<style type="text/css">
+ .slider {
+ z-index: 9;
+ width: 700px;
+ height: 290px;
+ overflow: hidden;
+ margin: 0 0 7px;
+ position: relative;
+ }
+ .slider ul,
+ .slider li {
+ padding: 0;
+ margin: 0;
+ list-style-type: none;
+ }
+ .slider ul {
+ width: 9999px; 
+ }
+ .slider ul li {
+ list-style-type: none;
+ float: left;
+ width: 700px;
+ height: 290px;
+ }
+ .slider .nav {
+ position: absolute;
+ left: 15px;
+ bottom: 12px; 
+ }
+ .slider .nav span {
+ opacity: 0.9;
+ background: #fff;
+ margin: 0 8px 0 0;
+ width: 16px;
+ height: 16px;
+ border-radius: 8px;
+ cursor: pointer;
+ overflow: hidden;
+ display: block;
+ float: left;
+ box-shadow: 0 1px 2px #000;
+ }
+ .slider .nav span.on {
+ background: #2e9419;
+ }
+</style>
+
+
+<article>
+   <h1>London</h1>
+   <p>London is the capital city of England. It is the most populous city in the 
+   United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+   <p>Standing on the River Thames, London has been a major settlement for two millennia, 
+   its history going back to its founding by the Romans, who named it Londinium</p>
+<p>Standing on the River Thames, London has been a major settlement for two millennia, 
+   its history going back to its founding by the Romans, who named it Londinium</p>
+<p>Standing on the River Thames, London has been a major settlement for two millennia, 
+   its history going back to its founding by the Romans, who named it Londinium</p>
+<p>Standing on the River Thames, London has been a major settlement for two millennia, 
+   its history going back to its founding by the Romans, who named it Londinium</p>
+<p>Standing on the River Thames, London has been a major settlement for two millennia, 
+   its history going back to its founding by the Romans, who named it Londinium</p>
+<p>Standing on the River Thames, London has been a major settlement for two millennia, 
+   its history going back to its founding by the Romans, who named it Londinium</p>
+<p>Standing on the River Thames, London has been a major settlement for two millennia, 
+   its history going back to its founding by the Romans, who named it Londinium</p>
+<p>Standing on the River Thames, London has been a major settlement for two millennia, 
+   its history going back to its founding by the Romans, who named it Londinium</p>
+<p>Standing on the River Thames, London has been a major settlement for two millennia, 
+   its history going back to its founding by the Romans, who named it Londinium</p>
+   
+</article>
+
+<script type="text/javascript">
+$(document).ready(function() {
+ $(".slider").each(function () { // обрабатываем каждый слайдер
+  var obj = $(this);
+  $(obj).append("<div class='nav'></div>");
+  $(obj).find("li").each(function () {
+   $(obj).find(".nav").append("<span rel='"+$(this).index()+"'></span>"); // добавляем блок навигации
+   $(this).addClass("slider"+$(this).index());
+  });
+  $(obj).find("span").first().addClass("on"); // делаем активным первый элемент меню
+ });
+});
+function sliderJS (obj, sl) { // slider function
+ var ul = $(sl).find("ul"); // находим блок
+ var bl = $(sl).find("li.slider"+obj); // находим любой из элементов блока
+ var step = $(bl).width(); // ширина объекта
+ $(ul).animate({marginLeft: "-"+step*obj}, 500); // 500 это скорость перемотки
+}
+$(document).on("click", ".slider .nav span", function() { // slider click navigate
+ var sl = $(this).closest(".slider"); // находим, в каком блоке был клик
+ $(sl).find("span").removeClass("on"); // убираем активный элемент
+ $(this).addClass("on"); // делаем активным текущий
+ var obj = $(this).attr("rel"); // узнаем его номер
+ sliderJS(obj, sl); // слайдим
+ return false;
+});
+</script>
+
+<div class = "push"></div>
+</div>
+<footer class = "footer">Copyright &copy; W3Schools.com</footer>
+</body>
+</html>
+   
